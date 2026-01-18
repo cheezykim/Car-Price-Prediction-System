@@ -182,12 +182,12 @@ input_df = pd.DataFrame([input_data])[model_columns]
 # ==================================================
 # Market price caps (REALISTIC)
 # ==================================================
-def get_price_cap_usd(brand, engine_cc):
-    if engine_cc <= 1200:
+def get_price_cap_usd(brands, engine):
+    if engine <= 1200:
         return 20_000
-    if 1200 < engine_cc <= 2000:
+    if 1200 < engine <= 2000:
         return 25_000
-    if 2000 < engine_cc <= 3500:
+    if 2000 < engine <= 3500:
         return 60_000
 
     luxury_caps = {
@@ -197,7 +197,7 @@ def get_price_cap_usd(brand, engine_cc):
         "Ferrari": 600_000,
         "Rolls-Royce": 350_000,
     }
-    return luxury_caps.get(brand, 80_000)
+    return luxury_caps.get(brands, 80_000)
 
 # ==================================================
 # Prediction
